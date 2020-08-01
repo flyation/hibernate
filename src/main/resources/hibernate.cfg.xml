@@ -28,5 +28,9 @@
 
         <!-- 自动生成表 -->
         <property name="hibernate.hbm2ddl.auto"/>
+
+
+        <!-- 注册实体类关系映射文件 -->
+        <mapping resource="com/southwind/entity/People..hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>
