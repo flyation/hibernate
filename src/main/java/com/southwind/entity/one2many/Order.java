@@ -1,4 +1,4 @@
-package com.southwind.entity;
+package com.southwind.entity.one2many;
 
 import lombok.Data;
 

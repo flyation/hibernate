@@ -1,12 +1,12 @@
-package com.southwind.entity;
+package com.southwind.entity.many2many;
 
 import lombok.Data;
 
 import java.util.Set;
 
 @Data
-public class Customer {
+public class Account {
     private Integer id;
     private String name;
-    private Set<Order> orders;
+    private Set<Course> courses;
 }

@@ -1,13 +1,11 @@
 package com.southwind.test;
 
-import com.southwind.entity.Customer;
-import com.southwind.entity.Order;
-import com.southwind.entity.People;
+import com.southwind.entity.single.People;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test2 {
+public class TestSingle {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -17,17 +15,12 @@ public class Test2 {
         Session session = sessionFactory.openSession();
 
         //demo
-        // 创建customer
-        Customer customer = new Customer();
-        customer.setName("张三");
-        // 创建order
-        Order order = new Order();
-        order.setName("订单1");
-        // 建立customer和order的关联关系
-        order.setCustomer(customer);
+        // 创建people
+        People people = new People();
+        people.setName("张三");
+        people.setMoney(1000D);
         // 保存
-        session.save(customer);
-        session.save(order);
+        session.save(people);
         // 提交事务
         session.beginTransaction().commit();
         session.close();

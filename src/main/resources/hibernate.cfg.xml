@@ -31,9 +31,12 @@
 
         <!-- 注册实体类关系映射文件 -->
         <!-- 单表 -->
-        <mapping resource="com/southwind/entity/People.hbm.xml"></mapping>
+        <mapping resource="com/southwind/entity/single/People.hbm.xml"/>
         <!-- 一对多 -->
-        <mapping resource="com/southwind/entity/Customer.hbm.xml"></mapping>
-        <mapping resource="com/southwind/entity/Order.hbm.xml"></mapping>
+        <mapping resource="com/southwind/entity/one2many/Customer.hbm.xml"/>
+        <mapping resource="com/southwind/entity/one2many/Order.hbm.xml"/>
+        <!-- 多对多 -->
+        <mapping resource="com/southwind/entity/many2many/Account.hbm.xml"/>
+        <mapping resource="com/southwind/entity/many2many/Course.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
