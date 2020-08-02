@@ -2,7 +2,8 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.southwind.entity.Customer" table="customer">
+    <!-- 踩坑记录：order是mysql的关键字，用做表名的时候一定要用``包裹，否则报错 -->
+    <class name="com.southwind.entity.Order" table="`order`">
         <id name="id" type="java.lang.Integer">
             <column name="id"></column>
             <generator class="identity"></generator>
@@ -10,13 +11,7 @@
         <property name="name" type="java.lang.String">
             <column name="name"></column>
         </property>
-        <!-- 一对多（主表） -->
-        <!-- set 实体类中的集合 name 集合的属性名 -->
-        <set name="orders">
-            <!-- key 外键 -->
-            <key column="cid"></key>
-            <!-- one-to-many 集合的泛型 -->
-            <one-to-many class="com.southwind.entity.Order"></one-to-many>
-        </set>
+        <!-- 一对多（从表） -->
+        <many-to-one name="customer" class="com.southwind.entity.Customer" column="cid"></many-to-one>
     </class>
 </hibernate-mapping>

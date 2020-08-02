@@ -6,7 +6,7 @@
     <session-factory>
         <!-- 数据源配置 -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8</property>
+        <property name="connection.url">jdbc:mysql://localhost:3307/test?useUnicode=true&amp;characterEncoding=UTF-8</property>
         <property name="connection.username">root</property>
         <property name="connection.password">123456</property>
 
@@ -19,7 +19,7 @@
         <property name="hibernate.c3p0.max_statements">10</property>
 
         <!-- 数据库方言 -->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
 
         <!-- 打印SQL -->
         <property name="show_sql">true</property>
@@ -27,10 +27,13 @@
         <property name="format_sql">true</property>
 
         <!-- 自动生成表 -->
-        <property name="hibernate.hbm2ddl.auto"/>
-
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- 注册实体类关系映射文件 -->
-        <mapping resource="com/southwind/entity/People..hbm.xml"></mapping>
+        <!-- 单表 -->
+        <mapping resource="com/southwind/entity/People.hbm.xml"></mapping>
+        <!-- 一对多 -->
+        <mapping resource="com/southwind/entity/Customer.hbm.xml"></mapping>
+        <mapping resource="com/southwind/entity/Order.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>
