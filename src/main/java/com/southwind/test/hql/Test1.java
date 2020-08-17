@@ -17,7 +17,7 @@ public class Test1 {
         // 获取session
         Session session = sessionFactory.openSession();
 
-        //demo
+        // 查询
 //        String hql = "from com.southwind.entity.single.People";
         String hql = "from com.southwind.entity.single.People"; // 全类名可以省略为普通类名
         Query query = session.createQuery(hql);

@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class Test2 {
+public class Test5 {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -17,13 +17,11 @@ public class Test2 {
         // 获取session
         Session session = sessionFactory.openSession();
 
-        // 分页查询
-        String hql = "from People";
+        // 排序
+        String hql = "from People order by money desc ";
         Query query = session.createQuery(hql);
-        query.setFirstResult(2);    // 起始下标
-        query.setMaxResults(2);    // 截取长度
         List<People> list = query.list();
-        System.out.println(list);
+        list.forEach(System.out::println);
 
         session.close();
     }

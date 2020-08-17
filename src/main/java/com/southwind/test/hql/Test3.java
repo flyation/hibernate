@@ -15,7 +15,7 @@ public class Test3 {
         // 获取session
         Session session = sessionFactory.openSession();
 
-        //demo
+        // where条件
         String hql = "from People where id = 14";
         Query query = session.createQuery(hql);
 //        People people = (People) query.list().get(0); // 当查询结果集为空时，此时会抛出异常 数组下标越界java.lang.IndexOutOfBoundsException: Index: 0, Size: 0

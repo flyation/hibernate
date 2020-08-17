@@ -1,6 +1,7 @@
 package com.southwind.test.hql;
 
-import com.southwind.entity.single.People;
+import com.southwind.entity.one2many.Customer;
+import com.southwind.entity.one2many.Order;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -8,7 +9,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class Test2 {
+public class Test8 {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -17,13 +18,17 @@ public class Test2 {
         // 获取session
         Session session = sessionFactory.openSession();
 
-        // 分页查询
-        String hql = "from People";
-        Query query = session.createQuery(hql);
-        query.setFirstResult(2);    // 起始下标
-        query.setMaxResults(2);    // 截取长度
-        List<People> list = query.list();
-        System.out.println(list);
+        // 级联查询
+        String hql1 = "from Customer where id = :id";
+        Query query1 = session.createQuery(hql1);
+        query1.setParameter("id", 1);
+        Customer customer = (Customer) query1.uniqueResult();
+
+        String hql2 = "from Order where customer = :customer";
+        Query query2 = session.createQuery(hql2);
+        query2.setParameter("customer", customer);
+        List<Order> list = query2.list();
+        list.forEach(System.out::println);
 
         session.close();
     }

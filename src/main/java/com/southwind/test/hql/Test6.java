@@ -1,14 +1,11 @@
 package com.southwind.test.hql;
 
-import com.southwind.entity.single.People;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import java.util.List;
-
-public class Test2 {
+public class Test6 {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -17,13 +14,11 @@ public class Test2 {
         // 获取session
         Session session = sessionFactory.openSession();
 
-        // 分页查询
-        String hql = "from People";
+        // 查询某个属性
+        String hql = "select name from People where id = 2";
         Query query = session.createQuery(hql);
-        query.setFirstResult(2);    // 起始下标
-        query.setMaxResults(2);    // 截取长度
-        List<People> list = query.list();
-        System.out.println(list);
+        String name = (String) query.uniqueResult();
+        System.out.println(name);
 
         session.close();
     }

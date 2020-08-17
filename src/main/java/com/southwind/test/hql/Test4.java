@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class Test2 {
+public class Test4 {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -17,11 +17,9 @@ public class Test2 {
         // 获取session
         Session session = sessionFactory.openSession();
 
-        // 分页查询
-        String hql = "from People";
+        // 模糊查询
+        String hql = "from People where name like '%三%'";
         Query query = session.createQuery(hql);
-        query.setFirstResult(2);    // 起始下标
-        query.setMaxResults(2);    // 截取长度
         List<People> list = query.list();
         System.out.println(list);
 
