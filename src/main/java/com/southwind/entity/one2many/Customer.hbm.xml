@@ -12,7 +12,8 @@
         </property>
         <!-- 一对多 -->
         <!-- set 实体类中的集合 -->
-        <set name="orders" table="`order`">
+        <!-- lazy= true:开启(默认)  false:关闭  extra:更懒惰(智能) -->
+        <set name="orders" table="`order`" lazy="extra">
             <!-- key 外键 -->
             <key column="cid"></key>
             <!-- one-to-many 集合的泛型 -->

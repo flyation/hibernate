@@ -1,10 +1,12 @@
 package com.southwind.entity.many2many;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 public class Course {
     private Integer id;
     private String name;

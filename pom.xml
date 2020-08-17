@@ -32,7 +32,7 @@
         </dependency>
     </dependencies>
 
-    <!-- 解决 IDEA 中src下资源文件无法读取的问题 -->
+    <!-- 解决IDEA中src下资源文件无法读取的问题 -->
     <build>
         <resources>
             <resource>

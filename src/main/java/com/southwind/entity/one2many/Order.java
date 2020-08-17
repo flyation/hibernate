@@ -1,8 +1,10 @@
 package com.southwind.entity.one2many;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Order {
     private Integer id;
     private String name;

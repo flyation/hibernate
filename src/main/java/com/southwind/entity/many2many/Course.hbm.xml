@@ -12,7 +12,7 @@
         </property>
         <!-- 多对多 -->
         <!-- set 实体类中的集合    name 实体类 -->
-        <set name="accounts" table="account_course">
+        <set name="accounts" table="account_course" lazy="false">
             <!-- key 外键 -->
             <key column="cid"></key>
             <!-- many-to-many 集合的泛型 -->

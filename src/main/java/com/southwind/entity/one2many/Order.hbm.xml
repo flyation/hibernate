@@ -12,6 +12,6 @@
             <column name="name"></column>
         </property>
         <!-- 一对多 -->
-        <many-to-one name="customer" class="com.southwind.entity.one2many.Customer" column="cid"></many-to-one>
+        <many-to-one name="customer" class="com.southwind.entity.one2many.Customer" column="cid" lazy="proxy"></many-to-one>
     </class>
 </hibernate-mapping>
