@@ -1,11 +1,11 @@
-package com.southwind.test;
+package com.southwind.test.lazy;
 
-import com.southwind.entity.single.People;
+import com.southwind.entity.many2many.Account;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class TestSingle {
+public class Test3 {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -15,14 +15,8 @@ public class TestSingle {
         Session session = sessionFactory.openSession();
 
         //demo
-        // 创建people
-        People people = new People();
-        people.setName("李四");
-        people.setMoney(998.88D);
-        // 保存
-        session.save(people);
-        // 提交事务
-        session.beginTransaction().commit();
+        Account account = session.get(Account.class, 1);
+        System.out.println(account.getCourses());
         session.close();
     }
 }

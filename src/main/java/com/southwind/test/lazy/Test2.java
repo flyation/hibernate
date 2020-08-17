@@ -1,4 +1,4 @@
-package com.southwind.test;
+package com.southwind.test.lazy;
 
 import com.southwind.entity.one2many.Order;
 import org.hibernate.Session;

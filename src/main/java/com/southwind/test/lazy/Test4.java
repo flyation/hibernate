@@ -1,11 +1,11 @@
-package com.southwind.test;
+package com.southwind.test.lazy;
 
-import com.southwind.entity.many2many.Account;
+import com.southwind.entity.many2many.Course;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test3 {
+public class Test4 {
     public static void main(String[] args) {
         // 创建configuration（通过hibernate.cfg.xml）
         Configuration configuration = new Configuration().configure();
@@ -15,8 +15,8 @@ public class Test3 {
         Session session = sessionFactory.openSession();
 
         //demo
-        Account account = session.get(Account.class, 1);
-        System.out.println(account.getCourses());
+        Course course = session.get(Course.class, 1);
+        System.out.println(course);
         session.close();
     }
 }
