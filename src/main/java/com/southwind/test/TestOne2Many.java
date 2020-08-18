@@ -18,10 +18,10 @@ public class TestOne2Many {
         //demo
         // 创建customer
         Customer customer = new Customer();
-        customer.setName("王五3");
+        customer.setName("小马");
         // 创建order
         Order order = new Order();
-        order.setName("订单5");
+        order.setName("江南奥拓");
         // 建立customer和order的关联关系
         order.setCustomer(customer);
         // 保存

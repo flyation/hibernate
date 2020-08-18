@@ -13,7 +13,9 @@
         <!-- 一对多 -->
         <!-- set 实体类中的集合 -->
         <!-- lazy= true:开启(默认)  false:关闭  extra:更懒惰(智能) -->
-        <set name="orders" table="`order`" lazy="extra">
+        <!-- inverse= true:放弃维护  false:不放弃维护(默认)    【一对多关系中一般在多的一方维护】 -->
+        <!-- cascade= delete:级联删除 -->
+        <set name="orders" table="`order`" lazy="extra" inverse="true" cascade="delete">
             <!-- key 外键 -->
             <key column="cid"></key>
             <!-- one-to-many 集合的泛型 -->

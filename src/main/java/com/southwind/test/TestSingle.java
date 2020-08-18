@@ -17,8 +17,8 @@ public class TestSingle {
         //demo
         // 创建people
         People people = new People();
-        people.setName("李四");
-        people.setMoney(998.88D);
+        people.setName("王五");
+        people.setMoney(2000.0);
         // 保存
         session.save(people);
         // 提交事务
